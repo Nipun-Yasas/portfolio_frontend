@@ -24,6 +24,17 @@
 </template>
 
 <script setup>
+useHead({
+  link: [
+    { 
+      rel: 'stylesheet', 
+      href: 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css',
+      integrity: 'sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC',
+      crossorigin: 'anonymous'
+    }
+  ]
+})
+
 const name = "Nipun" ;
 const {data: projects, pending1, error1} = useFetch('http://localhost:5000/Projects');
 const {data: blogs, pending2, error2 } = useFetch('http://localhost:5000/Blogs');
