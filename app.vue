@@ -41,7 +41,9 @@
             <label for="projectDescription" class="form-label">Project Description</label>
             <textarea class="form-control" id="projectDescription" v-model="newProject.description"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary mb-3">Create Project</button>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary mb-3 ">Create Project</button>
+          </div>
         </form>
       </div>
 
@@ -57,7 +59,9 @@
             <label for="blogContent" class="form-label">Blog Content</label>
             <textarea class="form-control" id="blogContent" v-model="newBlog.content"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary mb-3">Create Blog</button>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary mb-3">Create Blog</button>
+          </div>
         </form>
       </div>
 
@@ -80,7 +84,9 @@
             <label for="updateProjectDescription" class="form-label">New Project Description</label>
             <textarea class="form-control" id="updateProjectDescription" v-model="updateProjectDescription"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary mb-3">Update Project</button>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary mb-3">Update Project</button>
+          </div>
         </form>
       </div>
 
@@ -100,7 +106,9 @@
             <label for="updateBlogContent" class="form-label">New Blog Content</label>
             <textarea class="form-control" id="updateBlogContent" v-model="updateBlogContent"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary mb-3">Update Blog</button>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary mb-3">Update Blog</button>
+          </div>
         </form>
       </div>
 
@@ -115,7 +123,9 @@
             <label for="projectId" class="form-label">Project Id</label>
             <input type="text" class="form-control" id="projectId" v-model="deleteProjectId">
           </div>
+          <div class="text-center">
             <button type="submit" class="btn btn-danger mb-3">Delete Project</button>
+          </div>
         </form>
       </div>
 
@@ -127,7 +137,9 @@
             <label for="blogId" class="form-label">Blog Id</label>
             <input type="text" class="form-control" id="blogId" v-model="deleteBlogId">
           </div>
+          <div class="text-center">
             <button type="submit" class="btn btn-danger mb-3">Delete Blog</button>
+          </div>
         </form>
       </div>
 
