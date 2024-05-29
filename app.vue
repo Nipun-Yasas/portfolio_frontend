@@ -140,6 +140,8 @@
 
 
 useHead({
+  title: 'My Portfolio',
+
   link: [
     { 
       rel: 'stylesheet', 
