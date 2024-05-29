@@ -66,13 +66,56 @@
     <div class="row">
       <div class="col">
 
+        <!--form to update projects by id-->
+        <form @submit="updateProject">
+          <div class="mb-3">
+            <label for="updateProjectId" class="form-label">Project Id</label>
+            <input type="text" class="form-control" id="updateProjectId" v-model="updateProjectId">
+          </div>
+          <div class="mb-3">
+            <label for="updateProjectName" class="form-label">New Project Name</label>
+            <input type="text" class="form-control" id="updateProjectName" v-model="updateProjectName">
+          </div>
+          <div class="mb-3">
+            <label for="updateProjectDescription" class="form-label">New Project Description</label>
+            <textarea class="form-control" id="updateProjectDescription" v-model="updateProjectDescription"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary mb-3">Update Project</button>
+        </form>
+      </div>
+
+      <div class="col">
+
+        <!--form to update blogs by id-->
+        <form @submit="updateBlog">
+          <div class="mb-3">
+            <label for="updateBlogId" class="form-label">Blog Id</label>
+            <input type="text" class="form-control" id="updateBlogId" v-model="updateBlogId">
+          </div>
+          <div class="mb-3">
+            <label for="updateBlogTitle" class="form-label">New Blog Title</label>
+            <input type="text" class="form-control" id="updateBlogTitle" v-model="updateBlogTitle">
+          </div>
+          <div class="mb-3">
+            <label for="updateBlogContent" class="form-label">New Blog Content</label>
+            <textarea class="form-control" id="updateBlogContent" v-model="updateBlogContent"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary mb-3">Update Blog</button>
+        </form>
+      </div>
+
+    </div>
+    
+    <div class="row">
+      <div class="col">
+
         <!--form to delete a project by id-->
         <form @submit="deleteProject">
           <div class="mb-3">
             <label for="projectId" class="form-label">Project Id</label>
             <input type="text" class="form-control" id="projectId" v-model="deleteProjectId">
           </div>
-            <button type="submit" class="btn btn-danger">Delete Project</button>
+            <button type="submit" class="btn btn-danger mb-3">Delete Project</button>
         </form>
       </div>
 
@@ -84,7 +127,7 @@
             <label for="blogId" class="form-label">Blog Id</label>
             <input type="text" class="form-control" id="blogId" v-model="deleteBlogId">
           </div>
-            <button type="submit" class="btn btn-danger">Delete Blog</button>
+            <button type="submit" class="btn btn-danger mb-3">Delete Blog</button>
         </form>
       </div>
 
@@ -148,6 +191,38 @@ const createProject = async () => {
   }
 }
 
+//variable to catch updated project data from form
+const updateProjectId = ref('');
+
+//function to update projects
+const updateProject = async () => {
+  console.log(updateProjectId.value);
+
+  try {
+    const response = await fetch(`http://localhost:5000/Projects/${updateProjectId.value}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: updateProjectName.value,
+        description: updateProjectDescription.value
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to update project');
+    }
+
+    // Resetting the form
+    updateProjectId.value = '';
+    updateProjectName.value = '';
+    updateProjectDescription.value = '';
+  } catch (error) {
+    console.error("Error", error);
+  }
+};
+
 //variable to catch  project id to delete
 const deleteProjectId = ref('');
 
@@ -210,6 +285,38 @@ const createBlog = async () => {
     console.error("Error",error);
   }
 }
+
+//variable to catch updated blog data from form
+const updateBlogId = ref('');
+
+//function to update blogs
+const updateBlog = async () => {
+  console.log(updateBlogId.value);
+
+  try {
+    const response = await fetch(`http://localhost:5000/Blogs/${updateBlogId.value}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        title: updateBlogTitle.value,
+        content: updateBlogContent.value
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to update blog');
+    }
+
+    // Resetting the form
+    updateBlogId.value = '';
+    updateBlogTitle.value = '';
+    updateBlogContent.value = '';
+  } catch (error) {
+    console.error("Error", error);
+  }
+};
 
 //variable to catch  project id to delete
 const deleteBlogId = ref('');
