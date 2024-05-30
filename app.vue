@@ -33,7 +33,9 @@
 
         <!--form to create projects-->
         <form @submit.prevent="createProject"> 
-          <div class="mb-3">
+          <fieldset class="scheduler-border">
+            <legend class="scheduler-border">Create projects</legend>
+            <div class="mb-3">
             <label for="projectName" class="form-label">Project Name</label>
             <input type="text" class="form-control" id="projectName" v-model="newProject.name">
           </div>
@@ -44,14 +46,17 @@
           <div class="text-center">
             <button type="submit" class="btn btn-primary mb-3 ">Create Project</button>
           </div>
+          </fieldset>
         </form>
       </div>
 
       <div class="col">
 
         <!--form to create blogs-->
-        <form @submit.prevent="createBlog"> 
-          <div class="mb-3">
+        <form @submit.prevent="createBlog">
+          <fieldset class="scheduler-border">
+            <legend class="scheduler-border">Create blogs</legend>
+            <div class="mb-3">
             <label for="blogTitle" class="form-label">Blog Title</label>
             <input type="text" class="form-control" id="blogTitle" v-model="newBlog.title">
           </div>
@@ -62,6 +67,7 @@
           <div class="text-center">
             <button type="submit" class="btn btn-primary mb-3">Create Blog</button>
           </div>
+          </fieldset>
         </form>
       </div>
 
@@ -71,44 +77,50 @@
       <div class="col">
 
         <!--form to update projects by id-->
-        <form @submit="updateProject">
-          <div class="mb-3">
-            <label for="updateProjectId" class="form-label">Project Id</label>
-            <input type="text" class="form-control" id="updateProjectId" v-model="updateProjectId">
-          </div>
+        <form @submit.prevent="updateProject">
+          <fieldset class="scheduler-border">
+            <legend class="scheduler-border">Update projects</legend>
+            <select class="form-select mb-3" id="updateProjectId" v-model="newupdateProject._id">
+              <option value="" selected disabled>Select the project name</option>
+              <option v-for="project in projects" :value="project._id">{{ project.name }}</option>
+            </select>
           <div class="mb-3">
             <label for="updateProjectName" class="form-label">New Project Name</label>
-            <input type="text" class="form-control" id="updateProjectName" v-model="updateProjectName">
+            <input type="text" class="form-control" id="updateProjectName" v-model="newupdateProject.name">
           </div>
           <div class="mb-3">
             <label for="updateProjectDescription" class="form-label">New Project Description</label>
-            <textarea class="form-control" id="updateProjectDescription" v-model="updateProjectDescription"></textarea>
+            <textarea class="form-control" id="updateProjectDescription" v-model="newupdateProject.description"></textarea>
           </div>
           <div class="text-center">
             <button type="submit" class="btn btn-primary mb-3">Update Project</button>
           </div>
+          </fieldset>
         </form>
       </div>
 
       <div class="col">
 
         <!--form to update blogs by id-->
-        <form @submit="updateBlog">
-          <div class="mb-3">
-            <label for="updateBlogId" class="form-label">Blog Id</label>
-            <input type="text" class="form-control" id="updateBlogId" v-model="updateBlogId">
-          </div>
+        <form @submit.prevent="updateBlog">
+          <fieldset class="scheduler-border">
+            <legend class="scheduler-border">Update blogs</legend>
+          <select class="form-select mb-3 " id="updateblogId" v-model="newupdateBlog._id">
+              <option value="" selected disabled>Select the project name</option>
+              <option v-for="blog in blogs" :value="blog._id">{{ blog.title }}</option>
+            </select>
           <div class="mb-3">
             <label for="updateBlogTitle" class="form-label">New Blog Title</label>
-            <input type="text" class="form-control" id="updateBlogTitle" v-model="updateBlogTitle">
+            <input type="text" class="form-control" id="updateBlogTitle" v-model="newupdateBlog.title">
           </div>
           <div class="mb-3">
             <label for="updateBlogContent" class="form-label">New Blog Content</label>
-            <textarea class="form-control" id="updateBlogContent" v-model="updateBlogContent"></textarea>
+            <textarea class="form-control" id="updateBlogContent" v-model="newupdateBlog.content"></textarea>
           </div>
           <div class="text-center">
             <button type="submit" class="btn btn-primary mb-3">Update Blog</button>
           </div>
+          </fieldset>
         </form>
       </div>
 
@@ -118,28 +130,38 @@
       <div class="col">
 
         <!--form to delete a project by id-->
-        <form @submit="deleteProject">
-          <div class="mb-3">
-            <label for="projectId" class="form-label">Project Id</label>
-            <input type="text" class="form-control" id="projectId" v-model="deleteProjectId">
+        <form @submit.prevent="deleteProject">
+          <fieldset class="scheduler-border">
+            <legend class="scheduler-border">Delete projects</legend>
+            <div class="mb-3">
+            <select class="form-select" id="deleteProjectId" v-model="deleteProjectId">
+              <option value="" selected disabled>Select the project name</option>
+              <option v-for="project in projects" :value="project._id">{{ project.name }}</option>
+            </select>
           </div>
           <div class="text-center">
             <button type="submit" class="btn btn-danger mb-3">Delete Project</button>
           </div>
+          </fieldset>
         </form>
       </div>
 
       <div class="col">
 
         <!--form to delete a blog by id-->
-        <form @submit="deleteBlog">
-          <div class="mb-3">
-            <label for="blogId" class="form-label">Blog Id</label>
-            <input type="text" class="form-control" id="blogId" v-model="deleteBlogId">
+        <form @submit.prevent="deleteBlog">
+          <fieldset class="scheduler-border">
+            <legend class="scheduler-border">Delete blogss</legend>
+            <div class="mb-3">
+            <select class="form-select" id="deleteBlogId" v-model="deleteBlogId">
+              <option value="" selected disabled>Select the blog name</option>
+              <option v-for="blog in blogs" :value="blog._id">{{ blog.title }}</option>
+            </select>
           </div>
           <div class="text-center">
             <button type="submit" class="btn btn-danger mb-3">Delete Blog</button>
           </div>
+          </fieldset>  
         </form>
       </div>
 
@@ -168,7 +190,7 @@ const name = "Nipun" ;
 const {data: projects, pending1, error1} = useFetch('http://localhost:5000/Projects');
 const {data: blogs, pending2, error2 } = useFetch('http://localhost:5000/Blogs');
 
-//variable to catch form data on project
+//variable to get data on projects from form
 const newProject = ref({
   name: '',
   description: ''
@@ -193,7 +215,7 @@ const createProject = async () => {
 
     const result = await response.json();
 
-    //adding new project to the list of projects
+    //adding new project to the list of projects without refreshing the page
     projects.value.push(result);
 
     //resetting the form
@@ -205,56 +227,65 @@ const createProject = async () => {
   }
 }
 
-//variable to catch updated project data from form
-const updateProjectId = ref('');
+//variable to get updated project data from form
+const newupdateProject = ref({
+  _id: '',
+  name: '',
+  description: ''
+
+});
 
 //function to update projects
 const updateProject = async () => {
-  console.log(updateProjectId.value);
+  console.log(newupdateProject.value);
 
   try {
-    const response = await fetch(`http://localhost:5000/Projects/${updateProjectId.value}`, {
+    const response = await fetch(`http://localhost:5000/Projects/${newupdateProject.value._id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: updateProjectName.value,
-        description: updateProjectDescription.value
+        name: newupdateProject.value.name,
+        description: newupdateProject.value.description
       })
     });
 
     if (!response.ok) {
       throw new Error('Failed to update project');
     }
+    //update the project without refreshing the page
+    const updatedProject = await response.json();
+
+    const index = projects.value.findIndex(project => project._id === updatedProject._id);
+    if (index !== -1) {
+      projects.value.splice(index, 1, updatedProject);
+    }
 
     // Resetting the form
-    updateProjectId.value = '';
-    updateProjectName.value = '';
-    updateProjectDescription.value = '';
+    newupdateProject.value._id = '';
+    newupdateProject.value.name = '';
+    newupdateProject.value.description = '';
   } catch (error) {
     console.error("Error", error);
   }
 };
 
-//variable to catch  project id to delete
+//variable to get project id to delete
 const deleteProjectId = ref('');
 
 //function to delete projects
 const deleteProject = async () => {
   console.log(deleteProjectId.value);
-
   try {
     const response = await fetch(`http://localhost:5000/Projects/${deleteProjectId.value}`, {
       method: 'DELETE'
     });
-
     if (!response.ok) {
       throw new Error('Failed to delete project');
     }
-
     // Removing the project from the list of projects
-    projects.value = projects.value.filter(project => project.id !== deleteProjectId.value);
+    projects.value = projects.value.filter(project => project._id !== deleteProjectId.value);
 
     // Resetting the form
     deleteProjectId.value = '';
@@ -263,7 +294,7 @@ const deleteProject = async () => {
   }
 };
 
-//variable to catch form data on blog
+//variable to get data on blog from form
 const newBlog = ref({
   title: '',
   content: ''
@@ -288,7 +319,7 @@ const createBlog = async () => {
 
     const result = await response.json();
 
-    //adding new blog to the list of blogs
+    //adding new blog to the list of blogs without refreshing the page
     blogs.value.push(result);
 
     //resetting the form
@@ -300,22 +331,26 @@ const createBlog = async () => {
   }
 }
 
-//variable to catch updated blog data from form
-const updateBlogId = ref('');
+//variable to get updated blog data from form
+const newupdateBlog = ref({
+  _id: '',
+  title: '',
+  content: ''
+});
 
 //function to update blogs
 const updateBlog = async () => {
-  console.log(updateBlogId.value);
+  console.log(newupdateBlog.value);
 
   try {
-    const response = await fetch(`http://localhost:5000/Blogs/${updateBlogId.value}`, {
+    const response = await fetch(`http://localhost:5000/Blogs/${newupdateBlog.value._id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        title: updateBlogTitle.value,
-        content: updateBlogContent.value
+        title: newupdateBlog.value.title,
+        content: newupdateBlog.value.content
       })
     });
 
@@ -323,16 +358,24 @@ const updateBlog = async () => {
       throw new Error('Failed to update blog');
     }
 
+    //update the blog without refreshing the page
+    const updatedBlog = await response.json();
+    const index = blogs.value.findIndex(blog => blog._id === updatedBlog._id);
+    if (index !== -1) {
+      blogs.value.splice(index, 1, updatedBlog);
+    }
+
     // Resetting the form
-    updateBlogId.value = '';
-    updateBlogTitle.value = '';
-    updateBlogContent.value = '';
+    newupdateBlog.value._id = '';
+    newupdateBlog.value.title = '';
+    newupdateBlog.value.content = '';
+
   } catch (error) {
     console.error("Error", error);
   }
 };
 
-//variable to catch  project id to delete
+//variable to get blog id to delete
 const deleteBlogId = ref('');
 
 //function to delete blogs
@@ -349,7 +392,7 @@ const deleteBlog = async () => {
     }
 
     // Removing the blog from the list of blogs
-    blogs.value = blogs.value.filter(blog => blog.id !== deleteBlogId.value);
+    blogs.value = blogs.value.filter(blog => blog._id !== deleteBlogId.value);
 
     // Resetting the form
     deleteBlogId.value = '';
@@ -361,4 +404,28 @@ const deleteBlog = async () => {
 </script>
 
 <style>
+fieldset.scheduler-border {
+  border: 1px groove #ddd !important;
+  padding: 0 1.4em 1.4em 1.4em !important;
+  margin: 0 0 1.5em 0 !important;
+  -webkit-box-shadow: 0px 0px 0px 0px #000;
+  box-shadow: 0px 0px 0px 0px #000;
+  margin-top: 30px !important;
+  background-color: #eeeeee;
+}
+
+legend.scheduler-border {
+  font-size: 1.2em !important;
+  font-weight: bold !important;
+  text-align: left !important;
+  width: auto;
+  padding: 0 10px;
+  border-bottom: none;
+  margin-top: -15px;
+  background-color: white;
+  color: black;
+  background-color: gray;
+  color: white;
+  padding: 5px 10px;
+}
 </style>
