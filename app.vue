@@ -1,190 +1,181 @@
 <template>
-  <h1>{{name}}</h1>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <h2>Projects</h2>
-        <div v-if="pending1">Loading...</div>
-        <ul>
-          <li v-for="project in projects" :key="project.name">
-            <h2>{{project.name}}</h2>
-            <p>{{project.description}}</p>
-          </li>
-        </ul>
-      </div>
-
-      <div class="col">
-        <h2>Blogs</h2>
-        <div v-if="pending2">Loading...</div>
-        <ul>
-          <li v-for="blog in blogs" :key="blog.title">
-            <h2>{{blog.title}}</h2>
-            <p>{{blog.content}}</p>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
   
-  <div class="continer mx-5">
-    <div class="row">
-      <div class="col">
 
-        <!--form to create projects-->
-        <form @submit.prevent="createProject"> 
-          <fieldset class="scheduler-border">
-            <legend class="scheduler-border">Create projects</legend>
-            <div class="mb-3">
-            <label for="projectName" class="form-label">Project Name</label>
-            <input type="text" class="form-control" id="projectName" v-model="newProject.name">
-          </div>
-          <div class="mb-3">
-            <label for="projectDescription" class="form-label">Project Description</label>
-            <textarea class="form-control" id="projectDescription" v-model="newProject.description"></textarea>
-          </div>
-          <div class="text-center">
-            <button type="submit" class="btn btn-primary mb-3 ">Create Project</button>
-          </div>
-          </fieldset>
-        </form>
+  <h1>{{name}}</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h2>Projects</h2>
+          <div v-if="pending1">Loading...</div>
+          <ul>
+            <li v-for="project in projects" :key="project.name">
+              <h2>{{project.name}}</h2>
+              <p>{{project.description}}</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col">
+          <h2>Blogs</h2>
+          <div v-if="pending2">Loading...</div>
+          <ul>
+            <li v-for="blog in blogs" :key="blog.title">
+              <h2>{{blog.title}}</h2>
+              <p>{{blog.content}}</p>
+            </li>
+          </ul>
+        </div>
+
       </div>
-
-      <div class="col">
-
-        <!--form to create blogs-->
-        <form @submit.prevent="createBlog">
-          <fieldset class="scheduler-border">
-            <legend class="scheduler-border">Create blogs</legend>
-            <div class="mb-3">
-            <label for="blogTitle" class="form-label">Blog Title</label>
-            <input type="text" class="form-control" id="blogTitle" v-model="newBlog.title">
-          </div>
-          <div class="mb-3">
-            <label for="blogContent" class="form-label">Blog Content</label>
-            <textarea class="form-control" id="blogContent" v-model="newBlog.content"></textarea>
-          </div>
-          <div class="text-center">
-            <button type="submit" class="btn btn-primary mb-3">Create Blog</button>
-          </div>
-          </fieldset>
-        </form>
-      </div>
-
-    </div>
-
-    <div class="row">
-      <div class="col">
-
-        <!--form to update projects by id-->
-        <form @submit.prevent="updateProject">
-          <fieldset class="scheduler-border">
-            <legend class="scheduler-border">Update projects</legend>
-            <select class="form-select mb-3" id="updateProjectId" v-model="newupdateProject._id">
-              <option value="" selected disabled>Select the project name</option>
-              <option v-for="project in projects" :value="project._id">{{ project.name }}</option>
-            </select>
-          <div class="mb-3">
-            <label for="updateProjectName" class="form-label">New Project Name</label>
-            <input type="text" class="form-control" id="updateProjectName" v-model="newupdateProject.name">
-          </div>
-          <div class="mb-3">
-            <label for="updateProjectDescription" class="form-label">New Project Description</label>
-            <textarea class="form-control" id="updateProjectDescription" v-model="newupdateProject.description"></textarea>
-          </div>
-          <div class="text-center">
-            <button type="submit" class="btn btn-primary mb-3">Update Project</button>
-          </div>
-          </fieldset>
-        </form>
-      </div>
-
-      <div class="col">
-
-        <!--form to update blogs by id-->
-        <form @submit.prevent="updateBlog">
-          <fieldset class="scheduler-border">
-            <legend class="scheduler-border">Update blogs</legend>
-          <select class="form-select mb-3 " id="updateblogId" v-model="newupdateBlog._id">
-              <option value="" selected disabled>Select the project name</option>
-              <option v-for="blog in blogs" :value="blog._id">{{ blog.title }}</option>
-            </select>
-          <div class="mb-3">
-            <label for="updateBlogTitle" class="form-label">New Blog Title</label>
-            <input type="text" class="form-control" id="updateBlogTitle" v-model="newupdateBlog.title">
-          </div>
-          <div class="mb-3">
-            <label for="updateBlogContent" class="form-label">New Blog Content</label>
-            <textarea class="form-control" id="updateBlogContent" v-model="newupdateBlog.content"></textarea>
-          </div>
-          <div class="text-center">
-            <button type="submit" class="btn btn-primary mb-3">Update Blog</button>
-          </div>
-          </fieldset>
-        </form>
-      </div>
-
     </div>
     
-    <div class="row">
-      <div class="col">
+    <div class="continer mx-5">
+      <div class="row">
+        <div class="col">
 
-        <!--form to delete a project by id-->
-        <form @submit.prevent="deleteProject">
-          <fieldset class="scheduler-border">
-            <legend class="scheduler-border">Delete projects</legend>
+          <!--form to create projects-->
+          <form @submit.prevent="createProject"> 
+            <fieldset class="scheduler-border">
+              <legend class="scheduler-border">Create projects</legend>
+              <div class="mb-3">
+              <label for="projectName" class="form-label">Project Name</label>
+              <input type="text" class="form-control" id="projectName" v-model="newProject.name">
+            </div>
             <div class="mb-3">
-            <select class="form-select" id="deleteProjectId" v-model="deleteProjectId">
-              <option value="" selected disabled>Select the project name</option>
-              <option v-for="project in projects" :value="project._id">{{ project.name }}</option>
-            </select>
-          </div>
-          <div class="text-center">
-            <button type="submit" class="btn btn-danger mb-3">Delete Project</button>
-          </div>
-          </fieldset>
-        </form>
+              <label for="projectDescription" class="form-label">Project Description</label>
+              <textarea class="form-control" id="projectDescription" v-model="newProject.description"></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary mb-3 ">Create Project</button>
+            </div>
+            </fieldset>
+          </form>
+        </div>
+
+        <div class="col">
+
+          <!--form to create blogs-->
+          <form @submit.prevent="createBlog">
+            <fieldset class="scheduler-border">
+              <legend class="scheduler-border">Create blogs</legend>
+              <div class="mb-3">
+              <label for="blogTitle" class="form-label">Blog Title</label>
+              <input type="text" class="form-control" id="blogTitle" v-model="newBlog.title">
+            </div>
+            <div class="mb-3">
+              <label for="blogContent" class="form-label">Blog Content</label>
+              <textarea class="form-control" id="blogContent" v-model="newBlog.content"></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary mb-3">Create Blog</button>
+            </div>
+            </fieldset>
+          </form>
+        </div>
+
       </div>
 
-      <div class="col">
+      <div class="row">
+        <div class="col">
 
-        <!--form to delete a blog by id-->
-        <form @submit.prevent="deleteBlog">
-          <fieldset class="scheduler-border">
-            <legend class="scheduler-border">Delete blogss</legend>
+          <!--form to update projects by id-->
+          <form @submit.prevent="updateProject">
+            <fieldset class="scheduler-border">
+              <legend class="scheduler-border">Update projects</legend>
+              <select class="form-select mb-3" id="updateProjectId" v-model="newupdateProject._id">
+                <option value="" selected disabled>Select the project name</option>
+                <option v-for="project in projects" :value="project._id">{{ project.name }}</option>
+              </select>
             <div class="mb-3">
-            <select class="form-select" id="deleteBlogId" v-model="deleteBlogId">
-              <option value="" selected disabled>Select the blog name</option>
-              <option v-for="blog in blogs" :value="blog._id">{{ blog.title }}</option>
-            </select>
-          </div>
-          <div class="text-center">
-            <button type="submit" class="btn btn-danger mb-3">Delete Blog</button>
-          </div>
-          </fieldset>  
-        </form>
-      </div>
+              <label for="updateProjectName" class="form-label">New Project Name</label>
+              <input type="text" class="form-control" id="updateProjectName" v-model="newupdateProject.name">
+            </div>
+            <div class="mb-3">
+              <label for="updateProjectDescription" class="form-label">New Project Description</label>
+              <textarea class="form-control" id="updateProjectDescription" v-model="newupdateProject.description"></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary mb-3">Update Project</button>
+            </div>
+            </fieldset>
+          </form>
+        </div>
 
+        <div class="col">
+
+          <!--form to update blogs by id-->
+          <form @submit.prevent="updateBlog">
+            <fieldset class="scheduler-border">
+              <legend class="scheduler-border">Update blogs</legend>
+            <select class="form-select mb-3 " id="updateblogId" v-model="newupdateBlog._id">
+                <option value="" selected disabled>Select the project name</option>
+                <option v-for="blog in blogs" :value="blog._id">{{ blog.title }}</option>
+              </select>
+            <div class="mb-3">
+              <label for="updateBlogTitle" class="form-label">New Blog Title</label>
+              <input type="text" class="form-control" id="updateBlogTitle" v-model="newupdateBlog.title">
+            </div>
+            <div class="mb-3">
+              <label for="updateBlogContent" class="form-label">New Blog Content</label>
+              <textarea class="form-control" id="updateBlogContent" v-model="newupdateBlog.content"></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary mb-3">Update Blog</button>
+            </div>
+            </fieldset>
+          </form>
+        </div>
+
+      </div>
+      
+      <div class="row">
+        <div class="col">
+
+          <!--form to delete a project by id-->
+          <form @submit.prevent="deleteProject">
+            <fieldset class="scheduler-border">
+              <legend class="scheduler-border">Delete projects</legend>
+              <div class="mb-3">
+              <select class="form-select" id="deleteProjectId" v-model="deleteProjectId">
+                <option value="" selected disabled>Select the project name</option>
+                <option v-for="project in projects" :value="project._id">{{ project.name }}</option>
+              </select>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-danger mb-3">Delete Project</button>
+            </div>
+            </fieldset>
+          </form>
+        </div>
+
+        <div class="col">
+
+          <!--form to delete a blog by id-->
+          <form @submit.prevent="deleteBlog">
+            <fieldset class="scheduler-border">
+              <legend class="scheduler-border">Delete blogs</legend>
+              <div class="mb-3">
+              <select class="form-select" id="deleteBlogId" v-model="deleteBlogId">
+                <option value="" selected disabled>Select the blog name</option>
+                <option v-for="blog in blogs" :value="blog._id">{{ blog.title }}</option>
+              </select>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-danger mb-3">Delete Blog</button>
+            </div>
+            </fieldset>  
+          </form>
+        </div>
+
+      </div>
     </div>
-  </div>
   
 </template>
 
 <script setup>
 
+import { ref } from 'vue';
 
-useHead({
-  title: 'My Portfolio',
-
-  link: [
-    { 
-      rel: 'stylesheet', 
-      href: 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css',
-      integrity: 'sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC',
-      crossorigin: 'anonymous'
-    }
-  ]
-})
 
 const name = "Nipun" ;
 const {data: projects, pending1, error1} = useFetch('http://localhost:5000/Projects');
@@ -428,4 +419,6 @@ legend.scheduler-border {
   color: white;
   padding: 5px 10px;
 }
+
+
 </style>
