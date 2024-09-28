@@ -6,7 +6,6 @@
             <li><a href="#about">About</a></li>
             <li><a href="#Portfolio">Portfolio</a></li>
             <li><a href="#contact">Contact</a></li>
-            
         </ul>
       </div>
     </div>
@@ -18,7 +17,7 @@
       </div>
     </div>
     <div class="row mt-3">
-      <div class="col-3 social text-center">
+      <div class="col-auto social text-center">
         <ul>
           <li><a href="#" class="fa fa-facebook"></a></li>
           <li><a href="#" class="fa fa-google"></a></li>
@@ -28,7 +27,6 @@
         </ul>
       </div>
     </div>
-
   </div>
   <div class="container-fluid details">
     <div class="row p-4">
@@ -38,30 +36,85 @@
       </div>
     </div>
     <h2 class="text-light text-center">My Skills</h2>
-    <div class="row">
-      <div class="col-3 card bg-dark m-3">
+    <div class="row m-3 d-flex justify-content-between">
+      <div class="col-sm card bg-dark m-2">
         <img class="card-img-top skills" src="assets/html.png" alt="Card image cap">
-        <div class="card-body">
-          <p class="card-text text-light">HTML</p>
+        <div class="card-body container-fluid">
+          
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">90%</div>
+          </div>
         </div>
       </div>
-      <div class="col-3 card bg-dark m-3">
+      <div class="col-sm card bg-dark m-2">
         <img class="card-img-top skills" src="assets/javascript.svg" alt="Card image cap">
-        <div class="card-body">
-          <p class="card-text text-light">Java script</p>
+        <div class="card-body container-fluid">
+
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">60%</div>
+          </div>
         </div>
       </div>
-      <div class="col-3 card bg-dark m-3">
+      <div class="col-sm card bg-dark m-2">
         <img class="card-img-top skills" src="assets/java.svg" alt="Card image cap">
-        <div class="card-body">
-          <p class="card-text text-light">Java</p>
+        <div class="card-body container-fluid">
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+          </div>
         </div>
       </div>
-      <div class="col-3 card bg-dark m-3">
+      <div class="col-sm card bg-dark m-2">
         <img class="card-img-top skills" src="assets/php.png" alt="Card image cap">
-        <div class="card-body">
-          <p class="card-text text-light">PHP</p>
+        <div class="card-body container-fluid">
+          
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">50%</div>
+          </div>
         </div>
+      </div>
+      <div class="col-sm card bg-dark m-2">
+        <img class="card-img-top skills" src="assets/c.svg" alt="Card image cap">
+        <div class="card-body container-fluid">
+          
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">80%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid ex">
+    <h2 class="text-light">Experience</h2>
+    <div class="row p-2">
+      <div class="col-3 ex1">
+        <h4 class="text-light">2024</h4>
+        <div class="spinner-grow text-warning" role="status">
+          <span class="visually-hidden"></span>
+        </div>
+      </div>
+      <div class="col-9">
+       <p class="text-light">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, sequi mollitia. Tenetur quisquam, molestias, debitis aspernatur esse nesciunt mollitia deserunt nam minima inventore labore. Tenetur id eligendi dolorem deserunt animi.
+       </p>
+      </div>
+    </div>
+    <div class="row p-2">
+      <div class="col-3 ex1">
+        <h4 class="text-light">2021</h4>
+        <div class="spinner-grow text-warning" role="status">
+          <span class="visually-hidden"></span>
+        </div>
+      </div>
+      <div class="col-9">
+       <p class="text-light">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, sequi mollitia. Tenetur quisquam, molestias, debitis aspernatur esse nesciunt mollitia deserunt nam minima inventore labore. Tenetur id eligendi dolorem deserunt animi.
+       </p>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid contact">
+    <div class="row">
+      <div class="col">
       </div>
     </div>
   </div>
@@ -111,6 +164,14 @@
   color: #f0f0f0;
 }
 
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
 
 .social{
   position: absolute;
@@ -128,7 +189,7 @@
 
 .details{
   background-color: #363535;
-  height: 90vh;
+  height: mh-100;
   padding: 20px;
 }
 
@@ -154,5 +215,20 @@
   width: 100px;
   height: 100px;
   border-radius: 10px;
+}
+
+.ex{
+  background-color: #1f1f1f;
+  height: auto;
+}
+
+.ex1{
+  border-right: #fff700 1px solid;
+  text-align: end;
+}
+
+.contact{
+  background-color: #363535;
+  height: 30vh;
 }
 </style>
