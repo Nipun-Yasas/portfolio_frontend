@@ -1,7 +1,4 @@
 <template>
-    <div class="hero">
-      <p>hello</p>
-    </div>
     <div>
     <h1>Admin Dashboard</h1>
     <p>Welcome! You are successfully logged in.</p>

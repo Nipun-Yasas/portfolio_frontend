@@ -1,34 +1,40 @@
 <template>
+  	<nav class="navbar navbar-expand-sm navbar-light" id="neubar">
+      <div class="container">
+        <a class="navbar-brand" href="/">Nipun Yasas</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto ">
+            <li class="nav-item">
+              <a class="nav-link mx-2 active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="#">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="#about">About</a>
+            </li class="nav-item">
+            <li><a class="nav-link mx-2" href="/login">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <div class="container-fluid hero">
       <div class="row">
-        <div class="navbar text-center">
-          <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="#Portfolio">Portfolio</a></li>
-              <li><a href="/login">Contact</a></li>
-          </ul>
+        <div class="col-sm order-sm-2 pt-lg-5 pt-md-5 pt-sm-1 aboutme ">
+          <h1>Hello</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptates.</p>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-6 text-center mt-5">
-          <h2 class="text-warning">I'm Nipun</h2>
-          <p class="text-light">Undegraduate</p>
-          <button class="btn btn-warning">Hire Me</button>
-        </div>
-      </div>
-      <div class="row mt-3">
-        <div class="col-auto social text-center">
-          <ul>
-            <li><a href="#" class="fa fa-facebook"></a></li>
-            <li><a href="#" class="fa fa-google"></a></li>
-            <li><a href="#" class="fa fa-linkedin"></a></li>
-            <li><a href="#" class="fa fa-youtube"></a></li>
-            <li><a href="#" class="fa fa-instagram"></a></li>
-          </ul>
+        <div class="col-sm order-sm-1 pt-lg-5 pt-md-5 pt-sm-1 propic">
+          <h1>Hello, I'm Nipun</h1>
+          <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptates.</p>
         </div>
       </div>
     </div>
-    <div class="container-fluid details">
+    <div class="container-fluid details" id="section1">
       <div class="row p-3">
         <div class="col">
           <h2 class="text-light">About</h2>
@@ -83,7 +89,7 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid ex">
+    <div class="container-fluid ex" id="section2">
       <h2 class="text-light">Experience</h2>
       <div class="row p-2">
         <div class="col-3 ex1">
@@ -112,87 +118,68 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid contact">
-      <div class="row">
-        <div class="col">
-        </div>
-      </div>
-    </div>
+    <h1>hello</h1>
     
   </template>
   
-  <style>
+<style>
+  .word-rotator {
+  position: relative;
+  display: inline-block;
+  font-size: 24px; /* Adjust font size as needed */
+  overflow: hidden; /* Hide overflowing text */
+}
+
+.word {
+  position: absolute;
+  opacity: 0; /* Start hidden */
+  animation: fade 6s infinite; /* Change duration as needed */
+}
+
+.word:nth-child(1) { animation-delay: 0s; }
+.word:nth-child(2) { animation-delay: 2s; }
+.word:nth-child(3) { animation-delay: 4s; }
+
+@keyframes fade {
+  0%, 20% { opacity: 0; }
+  30%, 80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+  
+    #neubar .nav-item {
+      margin : auto 4px;
+    }
+    #neubar a {
+      padding-left:12px;
+      padding-right:12px;
+    }
+    #neubar a:hover{
+      color: #344bf4;
+    }
   
   .hero{
-    background-image: url('../assets/hero.jpg');
+    background-color: #f9f9ff;
     height: 80vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-  }
-  
-  .navbar {
-    padding: 20px;
-    margin: auto;
-    width: 50vh;
-  
-  }
-  
-  .navbar ul {
-    list-style-type: none;
-    display: flex;
-    width: 100%;
-  
-  }
-  
-  .navbar ul li {
-    margin-right: 20px;
-    font-family: Roboto, sans-serif;
-    width: 100%;
-    
-  }
-  
-  .navbar ul li a {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .navbar ul li a:hover {
-    color: #f0f0f0;
-  }
-  
-  .fa {
-    padding: 20px;
-    font-size: 30px;
-    width: 50px;
-    text-align: center;
-    text-decoration: none;
-    margin: 5px 2px;
-  }
-  
-  .social{
-    position: absolute;
-    right: 0px;
-  }
-  .social ul {
-    list-style-type: none;
-    justify-content: flex-start;
-    width: auto;
-  }
-  .social ul li a{
-    text-decoration: none;
-    padding: 0%;
   }
   
   .details{
-    background-color: #363535;
+    background-color: #2c2f37;
     height: mh-100;
     padding: 20px;
   }
   
+  .aboutme{
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .svl{
+    border-right: #fff700 1px solid;
+    height: 100px;
+  }
+
+ 
   .card {
     display: flex;
     align-items: center;
@@ -231,5 +218,10 @@
     background-color: #363535;
     height: 30vh;
   }
+
+
   </style>
   
+<script>
+ 
+</script>
