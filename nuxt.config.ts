@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+
   app: {
     head: {
       "meta": [
@@ -25,6 +26,10 @@ export default defineNuxtConfig({
           rel: 'stylesheet', 
           href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
         },
+        {
+          rel: 'stylesheet', 
+          href: 'vue-typed-js/dist/vue-typed-js.css'
+        }
         
       ],
       script: [
@@ -48,8 +53,16 @@ export default defineNuxtConfig({
         {
           src: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js',
         
+        },
+        {
+          src: 'https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js',
+        },
+        {
+          src: 'https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js',
         }
       ]
     }
-  }
+  },
+
+  compatibilityDate: '2024-10-03'
 })

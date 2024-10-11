@@ -1,31 +1,65 @@
 <template>
-    <div>
-      <h1>Admin Login</h1>
-      <form @submit.prevent="handleLogin">
-        <div>
-          <label for="username">Username</label>
-          <input type="text" v-model="username" required />
+    <section >
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid"
+            alt="Sample image">
         </div>
-        <div>
-          <label for="password">Password</label>
-          <input type="password" v-model="password" required />
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form  @submit.prevent="handleLogin">
+            
+
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="text" v-model="username" required class="form-control form-control-lg"
+                placeholder="Enter the user name" />
+              <label class="form-label" for="username"></label>
+            </div>
+
+          
+            <div class="form-outline mb-3">
+              <input type="password"  v-model="password" required class="form-control form-control-lg"
+                placeholder="Enter password" />
+              <label class="form-label" for="password"></label>
+            </div>
+
+            <div class="text-center">
+              <p v-if="error" class="text-danger">{{ error }}</p>
+            </div>
+
+            <div v-if="error">
+            <button  class="btn btn-secondary"  @click="tryAgain">Try Again</button>
+            <a href="/" class="back">Go Back to Home</a>
+            </div>
+
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button type="submit" class="btn btn-primary">Login</button>
+              
+            </div>
+
+          </form>
         </div>
-        <button type="submit">Login</button>
-  
-        <!-- Display error message if login fails -->
-        <p v-if="error" style="color: red;">{{ error }}</p>
-  
-        <!-- Provide options to try again or go back to the homepage -->
-        <div v-if="error">
-          <button @click="tryAgain">Try Again</button>
-          <a href="/">Go Back to Home</a>
-        </div>
-      </form>
+      </div>
     </div>
     
-  </template>
+  </section>
+    
+</template>
+
+<style>
+  section{
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+  .back{
+    float: right;
+  }
+</style>
   
-  <script setup>
+<script setup>
   import { ref } from 'vue'
   import { useRouter } from 'vue-router'
   
