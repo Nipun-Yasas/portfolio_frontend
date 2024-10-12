@@ -1,15 +1,15 @@
 <template>
-  	<nav class="navbar navbar-expand-sm navbar-light" id="neubar">
+  	<nav class="navbar navbar-expand-sm" id="neubar">
       <div class="container">
         <a class="navbar-brand" href="/">Nipun Yasas</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
     
-        <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ms-auto ">
             <li class="nav-item">
-              <a class="nav-link mx-2 active" aria-current="page" href="/">Home</a>
+              <a class="nav-link mx-2" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link mx-2" href="#">Projects</a>
@@ -24,190 +24,141 @@
         </div>
       </div>
     </nav>
-    <div class="container-fluid hero">
-      <div class="row">
-        <div class="col-sm order-sm-2 pt-lg-5 pt-md-5 pt-sm-5 pb-5 propic ">
-          <h1 class="text-light">propic</h1>
-        </div>
-        <div class="col-sm order-sm-1 pt-lg-5 pt-md-5 pt-5 aboutme">
-          <h2 class="text-light">Hello <span class="text-warning name">Nipun</span></h2>
-          <p class="myinfo text-light" style="font-size: 25px;">I'm a <span class="whoiam text-warning"></span></p>
-        </div>
+
+    <section class="home">
+      <div class="home-img">
+          <img src="" alt="profile picture">
       </div>
-    </div>
-    <div class="container-fluid about ">
-      <div class="row p-3">
-        
-          <h2 class="text-light">About</h2>
-          <p class="text-light p-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque, eveniet cum! Deleniti mollitia, sit iusto nulla earum enim magnam nemo. Placeat fugiat architecto ipsum veritatis, modi nobis voluptatum dicta molestias!</p>
-      </div>
-      <div class="row">
-        <h2 class="text-light text-center">My Skills</h2>
-      <div class="row m-3 d-flex justify-content-between">
-        <div class="col-sm card bg-dark m-2 view">
-          <img class="card-img-top skills" src="assets/html.png" alt="Card image cap">
-          <div class="card-body container-fluid">
+      <div class="home-content">
+          <h1 class="text-white">Hi, It's <span class="name">Alex</span></h1>
+          <p class="text-white">I'm a <span class="whoiam text-danger"></span></p>
+          <p class="text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus labore dolores esse. Odit similique doloribus tenetur doloremque, sunt commodi in ipsa repudiandae debitis deleniti blanditiis quibusdam quaerat neque asperiores ea.</p>
+          <div class="social-icons">
+              <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="#"><i class="fa-brands fa-github"></i></a>
             
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">90%</div>
-            </div>
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
           </div>
-        </div>
-        <div class="col-sm card bg-dark m-2">
-          <img class="card-img-top skills" src="assets/javascript.svg" alt="Card image cap">
-          <div class="card-body container-fluid">
-  
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">60%</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm card bg-dark m-2">
-          <img class="card-img-top skills" src="assets/java.svg" alt="Card image cap">
-          <div class="card-body container-fluid">
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm card bg-dark m-2">
-          <img class="card-img-top skills" src="assets/php.png" alt="Card image cap">
-          <div class="card-body container-fluid">
-            
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">50%</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm card bg-dark m-2">
-          <img class="card-img-top skills" src="assets/c.svg" alt="Card image cap">
-          <div class="card-body container-fluid">
-            
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">80%</div>
-            </div>
-          </div>
-        </div>
+          <a href="#" class="hire">Hire me</a>
       </div>
-      </div>
-      
-    </div>
-    <div class="container-fluid ex" id="section2">
-      <h2 class="text-light">Experience</h2>
-      <div class="row p-2">
-        <div class="col-3 ex1">
-          <h4 class="text-light">2024</h4>
-          <div class="spinner-grow text-warning" role="status">
-            <span class="visually-hidden"></span>
-          </div>
-        </div>
-        <div class="col-9">
-         <p class="text-light">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, sequi mollitia. Tenetur quisquam, molestias, debitis aspernatur esse nesciunt mollitia deserunt nam minima inventore labore. Tenetur id eligendi dolorem deserunt animi.
-         </p>
-        </div>
-      </div>
-      <div class="row p-2">
-        <div class="col-3 ex1">
-          <h4 class="text-light">2021</h4>
-          <div class="spinner-grow text-warning" role="status">
-            <span class="visually-hidden"></span>
-          </div>
-        </div>
-        <div class="col-9">
-         <p class="text-light">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, sequi mollitia. Tenetur quisquam, molestias, debitis aspernatur esse nesciunt mollitia deserunt nam minima inventore labore. Tenetur id eligendi dolorem deserunt animi.
-         </p>
-        </div>
-      </div>
-    </div>
-    <h1>hello</h1>
-    
-    
+    </section>
+
 </template>
 
 <style>
-  
-  #neubar{
-    height: 8vh;
-    background-color: #31333b;
-  }
-  
-  #neubar .nav-item {
-    margin : auto 4px;
-  }
-  #neubar a {
-    padding-left:12px;
-    padding-right:12px;
-    color: white;
-  }
-  #neubar a:hover{
-    color: #fff700;
-  }
-  
-  .hero{
-    background-color: #34353a;
-    height: 92vh;
-  }
-  .name,.whoiam{
-    font-size: 50px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
-  .about{
-    background-color: #2c2f37;
-    height: mh-100;
-    padding: 20px;
-  }
-  
-  .propic{
-    text-align: center;
-    vertical-align: middle;
+.navbar{
+ 
+}
+.collapse{
+  justify-content: flex-end;
+}
+.navbar-brand{
+  font-size: 1.5rem;
+  color: #b74b4b;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+.nav-link{
+  transition: 0.3s ease;
+  color: white;
+}
+.nav-link:hover{
+  color: #b74b4b;
+}
+
+section{
+  min-height: 100vh;
+  padding: 5rem 9% 5rem;
+}
+.home{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  background-color: black;
+  padding-top:0;
+}
+.home .home-content h1{
+  line-height: 1.3;
+}
+.name{
+  color: #b74b4b;
+}
+.home-img{
+    border-radius: 50%;
+}
+.home-img img{
+  position: relative;
+  width: 32vw;
+  border-radius: 50%;
+  box-shadow: 0 0 25px solid #b74b4b;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+
+.home-img img:hover{
+  font-weight: 500;
+}
+
+.social-icons a{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  background-color: transparent;
+  border: 0.2rem solid #b74b4b;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  margin: 3rem 1.5rem 3rem 0;
+  transition: 0.3s ease;
+  color: #b74b4b;
+}
+
+.social-icons a:hover{
+  color: black;
+  transform: scale(1.3) translateY(-5px);
+  background-color: #b74b4b;
+  box-shadow: 0  0 25px #b74b4b;
+}
+
+.hire{
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  background-color: black;
+  border-radius: 4rem;
+  color: #b74b4b;
+  font-weight: 600;
+  border: 2px solid #b74b4b;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.hire:hover{
+  transform: scale3d(1.03);
+  background-color: #b74b4b;
+  color: black;
+  box-shadow: 0 0 25px #b74b4b;
+}
+@media(max-width:995px){
+  .home{
+    flex-direction: column;
   }
 
-  .svl{
-    border-right: #fff700 1px solid;
-    height: 100px;
+  .home .home-content h3{
+    font-size: 1.5rem;
   }
-.card {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
-    transition: 400ms;
-    
+
+  .home-content h1{
+    font-size: 3rem;
+  }
+
+  .home-img img{
+    width: 70vw;
+    margin-top: 1rem;
+    }
 }
-  
-.card p.tip {
-    font-size: 1em;
-    font-weight: 700;
-}
-  
-  .card:hover {
-    transform: scale(1.1, 1.1);
-  }
-  .skills{
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;
-  }
-  
-  .ex{
-    background-color: #1f1f1f;
-    height: auto;
-  }
-  
-  .ex1{
-    border-right: #fff700 1px solid;
-    text-align: end;
-  }
-  
-  .contact{
-    background-color: #363535;
-    height: 30vh;
-  }
-  
   
 </style>
 
