@@ -1,5 +1,5 @@
 <template>
-  	<nav class="navbar navbar-expand-sm" id="neubar">
+  	<nav class="navbar navbar-expand-sm bg-black" id="neubar">
       <div class="container">
         <a class="navbar-brand" href="/">Nipun Yasas</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,7 +27,7 @@
 
     <section class="home">
       <div class="home-img">
-          <img src="" alt="profile picture">
+          <img src="assets\313843 mail .jpg" alt="profile picture">
       </div>
       <div class="home-content">
           <h1 class="text-white">Hi, It's <span class="name">Alex</span></h1>
@@ -43,12 +43,29 @@
       </div>
     </section>
 
+    <section class="counter-section text-center" ref="counterSection">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="counter" data-target="100">0</div>
+          <p>Projects Completed</p>
+        </div>
+        <div class="col">
+          <div class="counter" data-target="10">0</div>
+          <p>Years of Experience</p>
+        </div>
+        <div class="col">
+          <div class="counter" data-target="500">0</div>
+          <p>Satisfied Clients</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </template>
 
 <style>
-.navbar{
- 
-}
+
 .collapse{
   justify-content: flex-end;
 }
@@ -66,11 +83,10 @@
 .nav-link:hover{
   color: #b74b4b;
 }
-
-section{
-  min-height: 100vh;
-  padding: 5rem 9% 5rem;
+.navbar-toggler{
+  background-color: #b74b4b;
 }
+
 .home{
   display: flex;
   justify-content: center;
@@ -78,6 +94,11 @@ section{
   gap: 5rem;
   background-color: black;
   padding-top:0;
+  min-height: 100vh;
+  padding: 5rem 9% 5rem;
+}
+.whoiam{
+  font-size: 3rem;
 }
 .home .home-content h1{
   line-height: 1.3;
@@ -114,6 +135,7 @@ section{
   margin: 3rem 1.5rem 3rem 0;
   transition: 0.3s ease;
   color: #b74b4b;
+  text-decoration: none;
 }
 
 .social-icons a:hover{
@@ -133,6 +155,7 @@ section{
   border: 2px solid #b74b4b;
   transition: 0.3s ease;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .hire:hover{
@@ -163,11 +186,11 @@ section{
 </style>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted,ref } from 'vue';
 
-// Initialize Typed.js after the component is mounted
+
 onMounted(() => {
-  // Check if Typed is defined
+  
   if (typeof Typed !== 'undefined') {
     const typed = new Typed(".whoiam", {
       strings: ["Designer", "Developer", "Programmer"],
@@ -180,5 +203,47 @@ onMounted(() => {
   }
 });
 
+const counterSection = ref(null); // Create a ref to access the DOM
 
+onMounted(() => {
+  const counters = counterSection.value.querySelectorAll('.counter'); // Access the DOM using the ref
+  const speed = 200;
+
+  const countUp = (counter) => {
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText;
+    const increment = target / speed;
+
+    if (count < target) {
+      counter.innerText = Math.ceil(count + increment);
+      setTimeout(() => countUp(counter), 50);
+    } else {
+      counter.innerText = target;
+    }
+  };
+
+  // Reset counters to 0 when the section becomes visible again
+  const resetCounters = (counters) => {
+    counters.forEach((counter) => {
+      counter.innerText = '0'; // Reset the counter's text to 0
+    });
+  };
+
+  // Intersection Observer for triggering counter when in view
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        resetCounters(counters); // Reset counters to 0 when section reappears
+        counters.forEach((counter) => {
+          countUp(counter); // Start counting again
+        });
+      }
+    });
+  });
+
+  // Observe each counter element
+  counters.forEach((counter) => {
+    observer.observe(counter);
+  });
+});
 </script>
